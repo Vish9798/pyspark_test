@@ -1,0 +1,16 @@
+{
+  "transformations": [
+    {"operation": "select", "args": ["id", "name", "age"]},
+    {"operation": "filter", "args": "age > 25"},
+    {
+      "operation": "withColumn",
+      "args": {
+        "name": "status",
+        "expr": "CASE WHEN age > 50 THEN 'Senior' ELSE 'Adult' END"
+      }
+    }
+  ],
+  "actions": [
+    {"action": "show", "args": {"n": 5, "truncate": false}}
+  ]
+}
